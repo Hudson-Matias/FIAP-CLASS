@@ -1,0 +1,249 @@
+
+<style>
+  .section { margin-bottom: 2rem; }
+  .metric-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin-bottom: 1.5rem; }
+  .metric-card {
+    background: var(--color-background-secondary);
+    border-radius: var(--border-radius-md);
+    padding: 1rem 1rem 1rem 1.1rem;
+    border-left: 3px solid transparent;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    transition: box-shadow 0.2s, transform 0.15s;
+    position: relative;
+  }
+  .metric-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.13); transform: translateY(-1px); }
+  .metric-card.accent-blue { border-left-color: #3266ad; }
+  .metric-card.accent-orange { border-left-color: #e07b39; }
+  .metric-card.accent-red { border-left-color: #e24b4a; }
+  .metric-card.accent-neutral { border-left-color: #ba7517; }
+  .metric-label { font-size: 11px; color: var(--color-text-secondary); margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.04em; }
+  .metric-val { font-size: 24px; font-weight: 600; color: var(--color-text-primary); line-height: 1.1; }
+  .metric-sub { font-size: 11px; color: var(--color-text-secondary); margin-top: 4px; }
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 3px 9px;
+    border-radius: 99px;
+    margin-top: 6px;
+  }
+  .tag-up { background: var(--color-background-danger); color: var(--color-text-danger); }
+  .tag-down { background: var(--color-background-success); color: var(--color-text-success); }
+  .tag-neutral { background: var(--color-background-warning); color: var(--color-text-warning); }
+  .chart-wrap { position: relative; width: 100%; background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 1rem; box-sizing: border-box; }
+  .section-title {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    margin-bottom: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section-title::before {
+    content: '';
+    display: inline-block;
+    width: 3px;
+    height: 14px;
+    background: #3266ad;
+    border-radius: 2px;
+  }
+  .legend { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 10px; font-size: 12px; color: var(--color-text-secondary); }
+  .legend span { display: flex; align-items: center; gap: 6px; }
+  .dot { width: 10px; height: 10px; border-radius: 3px; }
+  .divider { border: none; border-top: 1px solid var(--color-border-tertiary); margin: 1.5rem 0; opacity: 0.5; }
+  .ai-box {
+    background: var(--color-background-info);
+    border: 1px solid var(--color-border-info);
+    border-left: 4px solid #3266ad;
+    border-radius: var(--border-radius-lg);
+    padding: 1rem 1.25rem;
+    box-shadow: 0 1px 4px rgba(50,102,173,0.08);
+  }
+  .ai-box-title { font-size: 13px; font-weight: 600; color: var(--color-text-info); margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
+  .ai-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: var(--color-text-secondary);
+    padding: 6px 0;
+    border-bottom: 0.5px solid var(--color-border-tertiary);
+    transition: background 0.1s;
+  }
+  .ai-row:last-child { border-bottom: none; }
+  .ai-val { font-weight: 600; color: var(--color-text-primary); font-size: 13px; }
+  .vector-year-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: 10px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid var(--color-border-tertiary);
+  }
+  .vector-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 12px;
+    color: var(--color-text-secondary);
+    padding: 5px 0;
+    border-bottom: 0.5px solid var(--color-border-tertiary);
+  }
+  .vector-row:last-child { border-bottom: none; }
+  .vector-val { font-weight: 600; color: var(--color-text-primary); }
+</style>
+
+<div style="padding: 1rem 0;">
+
+  <div class="section">
+    <div class="section-title">Custo médio global por violação (USD)</div>
+    <div class="metric-grid">
+      <div class="metric-card accent-blue">
+        <div class="metric-label">2022 — Média global</div>
+        <div class="metric-val">$4,35M</div>
+        <div class="metric-sub">Recorde histórico da época</div>
+        <div class="tag tag-up">▲ +12,7% vs 2020</div>
+      </div>
+      <div class="metric-card accent-orange">
+        <div class="metric-label">2025 — Média global</div>
+        <div class="metric-val">$4,44M</div>
+        <div class="metric-sub">1ª queda em 5 anos vs 2024</div>
+        <div class="tag tag-down">▼ −9% vs 2024</div>
+      </div>
+      <div class="metric-card accent-blue">
+        <div class="metric-label">2022 — EUA</div>
+        <div class="metric-val">$9,44M</div>
+        <div class="metric-sub">Líder mundial pelo 12º ano</div>
+        <div class="tag tag-neutral">Top 1 global</div>
+      </div>
+      <div class="metric-card accent-red">
+        <div class="metric-label">2025 — EUA</div>
+        <div class="metric-val">$10,22M</div>
+        <div class="metric-sub">Novo recorde histórico</div>
+        <div class="tag tag-up">▲ +8,3% vs 2022</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Comparativo por setor — média (USD)</div>
+    <div class="legend">
+      <span><span class="dot" style="background:#3266ad"></span>2022</span>
+      <span><span class="dot" style="background:#e07b39"></span>2025</span>
+    </div>
+    <div class="chart-wrap" style="height: 280px;">
+      <canvas id="sectorChart"></canvas>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="section">
+    <div class="section-title">Tempo médio para identificar e conter a violação (dias)</div>
+    <div class="legend">
+      <span><span class="dot" style="background:#3266ad"></span>2022</span>
+      <span><span class="dot" style="background:#e07b39"></span>2025</span>
+    </div>
+    <div class="chart-wrap" style="height: 200px;">
+      <canvas id="timeChart"></canvas>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="section">
+    <div class="section-title">Principais vetores de ataque</div>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+      <div class="metric-card accent-blue" style="padding: 1rem;">
+        <div class="vector-year-label">2022</div>
+        <div class="vector-row">
+          <span>🔑 Credenciais comprometidas</span>
+          <span class="vector-val">19%</span>
+        </div>
+        <div class="vector-row">
+          <span>🎣 Phishing</span>
+          <span class="vector-val">16%</span>
+        </div>
+        <div class="vector-row">
+          <span>🔗 Cadeia de fornecimento</span>
+          <span class="vector-val">19%</span>
+        </div>
+      </div>
+      <div class="metric-card accent-orange" style="padding: 1rem;">
+        <div class="vector-year-label">2025</div>
+        <div class="vector-row">
+          <span>🎣 Phishing <span style="font-size:10px;opacity:0.7">(mais comum)</span></span>
+          <span class="vector-val">16%</span>
+        </div>
+        <div class="vector-row">
+          <span>🔗 Cadeia de fornecimento</span>
+          <span class="vector-val">~15%</span>
+        </div>
+        <div class="vector-row">
+          <span>🔑 Credenciais <span style="font-size:10px;opacity:0.7">(186d detectar)</span></span>
+          <span class="vector-val">10%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="ai-box">
+    <div class="ai-box-title">🤖 Novidade 2025: Impacto da IA na segurança de dados</div>
+    <div class="ai-row"><span>Economia média com uso extensivo de IA em segurança</span><span class="ai-val">$1,9M / violação</span></div>
+    <div class="ai-row"><span>Custo extra por uso de Shadow AI (IA não autorizada)</span><span class="ai-val">+$670K</span></div>
+    <div class="ai-row"><span>Organizações sem políticas de governança de IA</span><span class="ai-val">63%</span></div>
+    <div class="ai-row"><span>Violações de IA em empresas sem controles de acesso</span><span class="ai-val">97%</span></div>
+    <div class="ai-row"><span>Violações onde atacantes usaram IA (phishing, deepfakes)</span><span class="ai-val">1 em 6</span></div>
+    <div class="ai-row"><span>Ransomware — custo médio em 2025</span><span class="ai-val">$5,08M</span></div>
+  </div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+  new Chart(document.getElementById('sectorChart'), {
+    type: 'bar',
+    data: {
+      labels: ['Saúde', 'Financeiro', 'Infraestrutura crítica', 'Global média'],
+      datasets: [
+        { label: '2022', data: [10.1, 5.97, 5.4, 4.35], backgroundColor: '#3266ad', borderRadius: 5 },
+        { label: '2025', data: [7.42, null, null, 4.44], backgroundColor: '#e07b39', borderRadius: 5 }
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false }, tooltip: { callbacks: { label: ctx => ' $' + ctx.parsed.y.toFixed(2) + 'M' } } },
+      scales: {
+        x: { ticks: { font: { size: 12 }, color: '#888' }, grid: { display: false } },
+        y: { ticks: { callback: v => '$' + v + 'M', font: { size: 12 }, color: '#888' }, grid: { color: 'rgba(130,130,130,0.1)' }, beginAtZero: true, max: 12 }
+      }
+    }
+  });
+
+  new Chart(document.getElementById('timeChart'), {
+    type: 'bar',
+    data: {
+      labels: ['Tempo médio (dias)'],
+      datasets: [
+        { label: '2022', data: [277], backgroundColor: '#3266ad', barThickness: 36, borderRadius: 5 },
+        { label: '2025', data: [241], backgroundColor: '#e07b39', barThickness: 36, borderRadius: 5 }
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      indexAxis: 'y',
+      plugins: { legend: { display: false }, tooltip: { callbacks: { label: ctx => ' ' + ctx.parsed.x + ' dias' } }, datalabels: false },
+      scales: {
+        x: { ticks: { callback: v => v + 'd', font: { size: 12 }, color: '#888' }, grid: { color: 'rgba(130,130,130,0.1)' }, min: 0, max: 320 },
+        y: { ticks: { font: { size: 12 }, color: '#888' }, grid: { display: false } }
+      }
+    }
+  });
+</script>

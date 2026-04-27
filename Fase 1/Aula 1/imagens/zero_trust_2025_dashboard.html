@@ -1,0 +1,214 @@
+
+<style>
+  .zt-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin-bottom: 1.5rem; }
+  .zt-card {
+    background: var(--color-background-secondary);
+    border-radius: var(--border-radius-md);
+    padding: 0.9rem 1rem;
+    border-left: 3px solid #3266ad;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    transition: box-shadow 0.2s, transform 0.15s;
+  }
+  .zt-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.13); transform: translateY(-1px); }
+  .zt-label { font-size: 11px; color: var(--color-text-secondary); margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.04em; }
+  .zt-val { font-size: 24px; font-weight: 600; color: var(--color-text-primary); line-height: 1.1; }
+  .zt-sub { font-size: 11px; color: var(--color-text-tertiary); margin-top: 3px; }
+  .section-title {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section-title::before {
+    content: '';
+    display: inline-block;
+    width: 3px;
+    height: 14px;
+    background: #3266ad;
+    border-radius: 2px;
+  }
+  hr.div { border: none; border-top: 1px solid var(--color-border-tertiary); margin: 1.4rem 0; opacity: 0.5; }
+  .bar-row { display: flex; align-items: center; gap: 10px; margin-bottom: 9px; font-size: 12px; color: var(--color-text-secondary); }
+  .bar-label { min-width: 180px; }
+  .bar-track {
+    flex: 1;
+    height: 10px;
+    background: var(--color-background-secondary);
+    border-radius: 99px;
+    overflow: hidden;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.06);
+  }
+  .bar-fill {
+    height: 100%;
+    border-radius: 99px;
+    transition: width 0.6s cubic-bezier(0.4,0,0.2,1);
+  }
+  .bar-pct { min-width: 36px; text-align: right; font-weight: 600; color: var(--color-text-primary); font-size: 12px; }
+  .challenge-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .challenge-item {
+    background: var(--color-background-secondary);
+    border-radius: var(--border-radius-md);
+    padding: 0.85rem 1rem;
+    font-size: 12px;
+    border-left: 3px solid #ba7517;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.07);
+    transition: box-shadow 0.2s;
+  }
+  .challenge-item:hover { box-shadow: 0 3px 10px rgba(0,0,0,0.11); }
+  .challenge-pct { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
+  .tag { display: inline-flex; align-items: center; font-size: 11px; font-weight: 500; padding: 3px 9px; border-radius: 99px; }
+  .tag-up { background: var(--color-background-success); color: var(--color-text-success); }
+  .tag-warn { background: var(--color-background-warning); color: var(--color-text-warning); }
+  .tag-info { background: var(--color-background-info); color: var(--color-text-info); }
+  .impact-cards { display: flex; gap: 10px; flex-wrap: wrap; }
+  .impact-card {
+    flex: 1;
+    min-width: 140px;
+    background: var(--color-background-secondary);
+    border-radius: var(--border-radius-md);
+    padding: 0.9rem 1rem;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    transition: box-shadow 0.2s;
+  }
+  .impact-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.13); }
+  .trend-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13px;
+    color: var(--color-text-secondary);
+    padding: 10px 12px;
+    background: var(--color-background-secondary);
+    border-radius: var(--border-radius-md);
+    margin-bottom: 8px;
+    border-left: 3px solid #4a90d9;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.07);
+    transition: box-shadow 0.2s;
+  }
+  .trend-item:hover { box-shadow: 0 3px 10px rgba(0,0,0,0.11); }
+  .trend-icon { font-size: 16px; flex-shrink: 0; }
+</style>
+
+<div style="padding: 1rem 0;">
+
+  <div class="section-title">Mercado global de Zero Trust (USD)</div>
+  <div class="zt-grid">
+    <div class="zt-card">
+      <div class="zt-label">Valor em 2024</div>
+      <div class="zt-val">$36,96B</div>
+      <div class="zt-sub">Tamanho do mercado global</div>
+    </div>
+    <div class="zt-card" style="border-left-color:#27ae6e;">
+      <div class="zt-label">Projeção 2030</div>
+      <div class="zt-val" style="color:var(--color-text-success)">$92,42B</div>
+      <div class="zt-sub">CAGR de 16,6% ao ano</div>
+    </div>
+    <div class="zt-card" style="border-left-color:#e07b39;">
+      <div class="zt-label">Liderança regional</div>
+      <div class="zt-val">37%</div>
+      <div class="zt-sub">América do Norte em 2024</div>
+    </div>
+    <div class="zt-card" style="border-left-color:#9b59b6;">
+      <div class="zt-label">Crescimento mais rápido</div>
+      <div class="zt-val">APAC</div>
+      <div class="zt-sub">Ásia-Pacífico em expansão</div>
+    </div>
+  </div>
+
+  <hr class="div">
+
+  <div class="section-title">Adoção atual — onde as empresas estão</div>
+
+  <div class="bar-row">
+    <span class="bar-label">Já iniciaram adoção de ZT</span>
+    <div class="bar-track"><div class="bar-fill" style="width:86%;background:#3266ad"></div></div>
+    <span class="bar-pct">86%</span>
+  </div>
+  <div class="bar-row">
+    <span class="bar-label">Adoção parcial ou total (Gartner)</span>
+    <div class="bar-track"><div class="bar-fill" style="width:63%;background:#4a90d9"></div></div>
+    <span class="bar-pct">63%</span>
+  </div>
+  <div class="bar-row">
+    <span class="bar-label">Planejam adotar até 2026</span>
+    <div class="bar-track"><div class="bar-fill" style="width:81%;background:#27ae6e"></div></div>
+    <span class="bar-pct">81%</span>
+  </div>
+  <div class="bar-row">
+    <span class="bar-label">Pretendem trocar VPN por ZT em breve</span>
+    <div class="bar-track"><div class="bar-fill" style="width:65%;background:#27ae6e"></div></div>
+    <span class="bar-pct">65%</span>
+  </div>
+  <div class="bar-row" style="margin-top:6px; padding-top:10px; border-top: 1px solid var(--color-border-tertiary);">
+    <span class="bar-label" style="color:var(--color-text-danger); font-weight:600;">Atingiram maturidade completa</span>
+    <div class="bar-track"><div class="bar-fill" style="width:2%;background:#e24b4a"></div></div>
+    <span class="bar-pct" style="color:var(--color-text-danger);">2%</span>
+  </div>
+
+  <hr class="div">
+
+  <div class="section-title">Principais barreiras para adoção plena</div>
+  <div class="challenge-grid">
+    <div class="challenge-item">
+      <div class="challenge-pct" style="color:var(--color-text-warning)">49%</div>
+      <div style="color:var(--color-text-secondary)">Dificuldade de manter políticas consistentes em múltiplos ambientes cloud</div>
+    </div>
+    <div class="challenge-item">
+      <div class="challenge-pct" style="color:var(--color-text-warning)">48%</div>
+      <div style="color:var(--color-text-secondary)">Custo e restrições de recursos para implementação em escala</div>
+    </div>
+    <div class="challenge-item">
+      <div class="challenge-pct" style="color:var(--color-text-warning)">34%</div>
+      <div style="color:var(--color-text-secondary)">Falta de visibilidade para detectar e responder a ameaças</div>
+    </div>
+    <div class="challenge-item">
+      <div class="challenge-pct" style="color:var(--color-text-warning)">22%</div>
+      <div style="color:var(--color-text-secondary)">Resistência interna de equipes e stakeholders</div>
+    </div>
+  </div>
+
+  <hr class="div">
+
+  <div class="section-title">Impacto do ZT em violações de dados (IBM 2022)</div>
+  <div class="impact-cards">
+    <div class="impact-card" style="border-top: 3px solid var(--color-text-success);">
+      <div class="zt-label">Redução de custo por violação</div>
+      <div class="zt-val" style="color:var(--color-text-success)">−$1M</div>
+      <div class="zt-sub">Com estratégia Zero Trust ativa</div>
+    </div>
+    <div class="impact-card" style="border-top: 3px solid var(--color-text-danger);">
+      <div class="zt-label">Infraestrutura crítica sem ZT (2022)</div>
+      <div class="zt-val" style="color:var(--color-text-danger)">~80%</div>
+      <div class="zt-sub">Custo médio chegou a $5,4M</div>
+    </div>
+    <div class="impact-card" style="border-top: 3px solid var(--color-text-success);">
+      <div class="zt-label">ZT completo: redução de incidentes</div>
+      <div class="zt-val" style="color:var(--color-text-success)">−50%</div>
+      <div class="zt-sub">De 66% para 33% de incidentes</div>
+    </div>
+  </div>
+
+  <hr class="div">
+
+  <div class="section-title">Tendências em 2025</div>
+  <div style="display:flex; flex-direction:column; gap:8px;">
+    <div class="trend-item">
+      <span class="trend-icon">🔐</span>
+      <span><span style="font-weight:600; color:var(--color-text-primary)">Identidade é o novo firewall.</span> IAM e verificação contínua (não só no login) absorvem a maior fatia do orçamento de segurança.</span>
+    </div>
+    <div class="trend-item" style="border-left-color:#27ae6e;">
+      <span class="trend-icon">🤖</span>
+      <span><span style="font-weight:600; color:var(--color-text-primary)">IA integrada ao ZT.</span> Análise comportamental em tempo real e resposta automatizada a ameaças tornam o Zero Trust adaptativo.</span>
+    </div>
+    <div class="trend-item" style="border-left-color:#9b59b6;">
+      <span class="trend-icon">☁️</span>
+      <span><span style="font-weight:600; color:var(--color-text-primary)">SASE como modelo dominante.</span> Convergência de rede e segurança com SSE+SD-WAN elimina silos entre equipes de infra e segurança.</span>
+    </div>
+  </div>
+
+</div>

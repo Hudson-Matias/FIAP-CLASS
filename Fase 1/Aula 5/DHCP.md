@@ -1,0 +1,14 @@
+O serviço DHCP para IPv4 automatiza a atribuição de endereços IPs, máscaras, gateways e parâmetros de rede.
+O serviço DHCP obtêm um endereço IP de um escopo de IPs chamado pool de endereços e o aloca ao host de rede.
+Uma rede de grande porte, em que usuários mudam com frequência, o DHCP é a melhor opção para a atribuição de IPs. Em vez de usar o IP estático para cada conexão, é mais eficiente ter IP atribuídos automaticamente.
+Os endereços distribuídos pelo DHCP são alocados (concedidos) por um determinado período. Quando essa concessão expira, o endereço é retornado ao pool para reutilização se o host de rede tiver sido desligado ou desconectado da rede.
+Os usuários podem se mover livremente de um local para outro e restabelecer facilmente as conexões de rede com o DHCP. Vários tipos de dispositivos podem ser serviços DHCP, no entanto, na maioria das redes de médio a grande porte, geralmente é usado um computador como um servidor dedicado.
+Nas redes domésticas, o serviço DHCP normalmente está localizado no roteador local que interconecta a rede doméstica ao Provedor de Internet -ISP.
+![[Pasted image 20260416134222.png]]
+
+O DHCP inicia ou se interconecta à rede, o cliente transmite uma mensagem de descoberta do DHCP (DHCPDISCOVER) para identificar qualquer servidor DHCP disponível na rede, como mostra a figura.  
+Um serviço DHCP replica com uma mensagem de oferta DHCP (DHCPOFFER), que oferece uma concessão ao cliente. A mensagem de oferta detém o IPv4 e a máscara de sub-rede a serem atribuídos o IPv4 do servidor DNS e o IPv4 do gateway padrão. A oferta de arrendamento também inclui a duração do arrendamento.  
+O cliente pode receber várias mensagens **DHCPOFFER** se houver mais de um serviço DHCP na rede local. Portanto, você deve fazer uma seleção e enviar uma mensagem de solicitação de **DHCP (DHCPREQUEST)** que identifique o servidor explícito e a oferta de concessão que o cliente aceita. 
+Um cliente também pode decidir solicitar um IP que já tenha sido atribuído pelo servidor. Supondo que o IPv4 solicitado pelo cliente ou oferecido pelo servidor ainda seja válido, o servidor envia uma mensagem de confirmação de DHCP (DHCPACK) para o cliente, ratificando que a concessão foi encerrada. Se a oferta não for mais válida, o servidor selecionado responderá com uma mensagem de confirmação de DHCP negativa (DHCPNAK).
+Quando uma mensagem DHCPNAK é retornada, o processo de seleção deve continuar com a transmissão de uma nova mensagem DHCPDISCOVER. Se o cliente tiver a concessão, ele deverá ser renovado por outra mensagem DHCPREQUEST antes de expirar.
+O serviço DHCP garante que todos os IPs sejam únicos.

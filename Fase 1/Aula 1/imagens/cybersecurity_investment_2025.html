@@ -1,0 +1,269 @@
+
+<style>
+  .sec { margin-bottom: 1.6rem; }
+  .stitle {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .stitle::before {
+    content: '';
+    display: inline-block;
+    width: 3px;
+    height: 14px;
+    background: #3266ad;
+    border-radius: 2px;
+  }
+  .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; }
+  .kpi {
+    background: var(--color-background-secondary);
+    border-radius: var(--border-radius-md);
+    padding: .85rem 1rem;
+    border-left: 3px solid #3266ad;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    transition: box-shadow 0.2s, transform 0.15s;
+  }
+  .kpi:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.13); transform: translateY(-1px); }
+  .kpi-lbl { font-size: 11px; color: var(--color-text-secondary); margin-bottom: 3px; text-transform: uppercase; letter-spacing: 0.04em; }
+  .kpi-val { font-size: 22px; font-weight: 700; color: var(--color-text-primary); line-height: 1.1; }
+  .kpi-sub { font-size: 11px; color: var(--color-text-tertiary); margin-top: 3px; }
+  .tag { display: inline-flex; align-items: center; font-size: 10px; font-weight: 500; padding: 3px 8px; border-radius: 99px; margin-top: 5px; }
+  .tag-up { background: var(--color-background-success); color: var(--color-text-success); }
+  .tag-info { background: var(--color-background-info); color: var(--color-text-info); }
+  .tag-warn { background: var(--color-background-warning); color: var(--color-text-warning); }
+  hr.div { border: none; border-top: 1px solid var(--color-border-tertiary); margin: 1.2rem 0; opacity: 0.5; }
+  .seg-row { display: flex; align-items: center; gap: 10px; margin-bottom: 9px; font-size: 12px; color: var(--color-text-secondary); }
+  .seg-lbl { min-width: 175px; }
+  .seg-tr {
+    flex: 1;
+    height: 10px;
+    background: var(--color-background-secondary);
+    border-radius: 99px;
+    overflow: hidden;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.06);
+  }
+  .seg-fill {
+    height: 100%;
+    border-radius: 99px;
+    transition: width 0.6s cubic-bezier(0.4,0,0.2,1);
+  }
+  .seg-val { min-width: 52px; text-align: right; font-weight: 600; color: var(--color-text-primary); font-size: 12px; }
+  .driver-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .driver {
+    background: var(--color-background-secondary);
+    border-radius: var(--border-radius-md);
+    padding: .85rem 1rem;
+    font-size: 12px;
+    color: var(--color-text-secondary);
+    border-left: 3px solid #4a90d9;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.07);
+    transition: box-shadow 0.15s;
+  }
+  .driver:hover { box-shadow: 0 3px 10px rgba(0,0,0,0.11); }
+  .driver b { color: var(--color-text-primary); font-weight: 600; }
+  .chart-wrap {
+    position: relative;
+    width: 100%;
+    background: var(--color-background-secondary);
+    border-radius: var(--border-radius-md);
+    padding: 1rem;
+    box-sizing: border-box;
+  }
+  .trend-note { font-size: 11px; color: var(--color-text-tertiary); text-align: center; margin-top: 6px; }
+  .paradox-box {
+    background: var(--color-background-info);
+    border: 1px solid var(--color-border-info);
+    border-left: 4px solid #3266ad;
+    border-radius: var(--border-radius-lg);
+    padding: 1rem 1.25rem;
+    box-shadow: 0 1px 4px rgba(50,102,173,0.08);
+  }
+  .paradox-title { font-size: 13px; font-weight: 600; color: var(--color-text-info); margin-bottom: 8px; }
+  .legend-row { display: flex; flex-wrap: wrap; gap: 12px; font-size: 12px; color: var(--color-text-secondary); margin-top: 8px; justify-content: center; }
+  .legend-dot { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
+</style>
+
+<div style="padding: 1rem 0;">
+
+  <div class="sec">
+    <div class="stitle">Investimento global em cibersegurança</div>
+    <div class="kpi-grid">
+      <div class="kpi">
+        <div class="kpi-lbl">Gasto global em 2024</div>
+        <div class="kpi-val">$193B</div>
+        <div class="kpi-sub">Ponto de partida (Gartner)</div>
+      </div>
+      <div class="kpi" style="border-left-color:#27ae6e;">
+        <div class="kpi-lbl">Gasto global em 2025</div>
+        <div class="kpi-val" style="color:var(--color-text-success)">$213B</div>
+        <div class="kpi-sub">Novo recorde histórico</div>
+        <div class="tag tag-up">▲ +10,4% vs 2024</div>
+      </div>
+      <div class="kpi" style="border-left-color:#4a90d9;">
+        <div class="kpi-lbl">Projeção 2026</div>
+        <div class="kpi-val">$240B</div>
+        <div class="kpi-sub">+12,5% estimado (Gartner)</div>
+        <div class="tag tag-info">Crescimento contínuo</div>
+      </div>
+      <div class="kpi" style="border-left-color:#9b59b6;">
+        <div class="kpi-lbl">Projeção 2030</div>
+        <div class="kpi-val">$262B</div>
+        <div class="kpi-sub">Statista Market Forecast</div>
+        <div class="tag tag-info">CAGR ~16,6%</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="div">
+
+  <div class="sec">
+    <div class="stitle">Evolução histórica dos gastos globais (USD bilhões)</div>
+    <div class="chart-wrap" style="height: 220px;">
+      <canvas id="trendChart"></canvas>
+    </div>
+    <div class="trend-note">Fontes: Gartner, Statista, IDC — valores em USD bilhões</div>
+  </div>
+
+  <hr class="div">
+
+  <div class="sec">
+    <div class="stitle">Breakdown por segmento em 2025 (Gartner)</div>
+    <div class="seg-row">
+      <span class="seg-lbl">Software de segurança</span>
+      <div class="seg-tr"><div class="seg-fill" style="width:100%;background:#3266ad"></div></div>
+      <span class="seg-val">$100,7B <span style="font-size:10px;color:var(--color-text-tertiary)">▲+15,1%</span></span>
+    </div>
+    <div class="seg-row">
+      <span class="seg-lbl">Serviços de segurança</span>
+      <div class="seg-tr"><div class="seg-fill" style="width:87%;background:#4a90d9"></div></div>
+      <span class="seg-val">$88,1B <span style="font-size:10px;color:var(--color-text-tertiary)">▲+15,6%</span></span>
+    </div>
+    <div class="seg-row">
+      <span class="seg-lbl">Segurança de rede</span>
+      <div class="seg-tr"><div class="seg-fill" style="width:24%;background:#7ab3e0"></div></div>
+      <span class="seg-val">$24,8B <span style="font-size:10px;color:var(--color-text-tertiary)">▲+13,1%</span></span>
+    </div>
+    <div style="margin-top:10px; font-size:11px; color:var(--color-text-tertiary);">Destaques: IAM (29,3% share) · Cloud security (CASB+CWPP: $8,7B) · IA em cyber: $29,6B</div>
+  </div>
+
+  <hr class="div">
+
+  <div class="sec">
+    <div class="stitle">Gastos por segmento específico (projeção 2025)</div>
+    <div class="seg-row">
+      <span class="seg-lbl">🔐 Segurança de identidade (IAM)</span>
+      <div class="seg-tr"><div class="seg-fill" style="width:57%;background:#9b59b6"></div></div>
+      <span class="seg-val">~$36,9B</span>
+    </div>
+    <div class="seg-row">
+      <span class="seg-lbl">☁️ Segurança cloud</span>
+      <div class="seg-tr"><div class="seg-fill" style="width:65%;background:#27ae6e"></div></div>
+      <span class="seg-val">~$40B+</span>
+    </div>
+    <div class="seg-row">
+      <span class="seg-lbl">💻 Segurança de endpoint</span>
+      <div class="seg-tr"><div class="seg-fill" style="width:47%;background:#e07b39"></div></div>
+      <span class="seg-val">~$49,1B</span>
+    </div>
+    <div class="seg-row">
+      <span class="seg-lbl">🤖 IA em cibersegurança</span>
+      <div class="seg-tr"><div class="seg-fill" style="width:29%;background:#e24b4a"></div></div>
+      <span class="seg-val">$29,6B</span>
+    </div>
+    <div class="seg-row">
+      <span class="seg-lbl">🛡️ Seguro cibernético</span>
+      <div class="seg-tr"><div class="seg-fill" style="width:20%;background:#ba7517"></div></div>
+      <span class="seg-val">~$20B</span>
+    </div>
+  </div>
+
+  <hr class="div">
+
+  <div class="sec">
+    <div class="stitle">Distribuição regional (% do gasto global 2025)</div>
+    <div class="chart-wrap" style="height: 200px;">
+      <canvas id="regionChart"></canvas>
+    </div>
+    <div class="legend-row">
+      <span style="display:flex;align-items:center;gap:5px"><span class="legend-dot" style="background:#3266ad"></span>América do Norte 46%</span>
+      <span style="display:flex;align-items:center;gap:5px"><span class="legend-dot" style="background:#4a90d9"></span>Europa Ocidental 25%</span>
+      <span style="display:flex;align-items:center;gap:5px"><span class="legend-dot" style="background:#7ab3e0"></span>Ásia-Pacífico 18%</span>
+      <span style="display:flex;align-items:center;gap:5px"><span class="legend-dot" style="background:#b3d4f0"></span>Resto 11%</span>
+    </div>
+  </div>
+
+  <hr class="div">
+
+  <div class="sec">
+    <div class="stitle">O que está impulsionando os investimentos?</div>
+    <div class="driver-grid">
+      <div class="driver"><b>🤖 IA generativa como dupla ameaça.</b> Gartner prevê que até 2027, 17% dos ataques envolverão GenAI — forçando investimento em segurança para IA e contra IA ao mesmo tempo.</div>
+      <div class="driver" style="border-left-color:#27ae6e;"><b>☁️ Migração para cloud sem fim.</b> Cada etapa da jornada cloud exige camadas novas de segurança — de workloads a APIs, containers e SaaS de terceiros.</div>
+      <div class="driver" style="border-left-color:#e07b39;"><b>👥 Escassez de talentos.</b> 51% dos profissionais acham seus orçamentos insuficientes e 66% dizem que o estresse aumentou — empresas compensam terceirizando para MSSPs.</div>
+      <div class="driver" style="border-left-color:#9b59b6;"><b>📋 Pressão regulatória.</b> GDPR, LGPD, NIS2, HIPAA, DORA — regulações impõem gastos obrigatórios com compliance e resposta a incidentes.</div>
+      <div class="driver" style="border-left-color:#ba7517;"><b>🏢 Capital de risco concentrado.</b> Investimento em startups de cyber se aproximou de $150B em 2025, com rounds >$1B se multiplicando.</div>
+      <div class="driver" style="border-left-color:#e24b4a;"><b>📱 BYOD e trabalho híbrido.</b> Expansão da superfície de ataque com dispositivos pessoais força endpoint security, MFA e políticas de Zero Trust.</div>
+    </div>
+  </div>
+
+  <hr class="div">
+
+  <div class="paradox-box">
+    <div class="paradox-title">⚠️ O paradoxo do investimento</div>
+    <div style="font-size: 12px; color: var(--color-text-secondary); line-height: 1.75;">
+      Apesar do recorde de $213B investidos, <strong style="color:var(--color-text-primary)">51% dos profissionais ainda sentem que os orçamentos são insuficientes</strong>, e apenas <strong style="color:var(--color-text-primary)">40% têm alta confiança</strong> na capacidade da equipe de responder a um ataque. O problema não é só quanto se investe, mas <em>como</em> — gasto fragmentado em muitas ferramentas sem integração gera lacunas invisíveis.
+    </div>
+  </div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+new Chart(document.getElementById('trendChart'), {
+  type: 'bar',
+  data: {
+    labels: ['2020', '2021', '2022', '2023', '2024', '2025', '2026 (proj.)', '2030 (proj.)'],
+    datasets: [{
+      label: 'Gasto global (USD B)',
+      data: [123, 140, 158, 173, 193, 213, 240, 262],
+      backgroundColor: ['#4a90d9','#4a90d9','#4a90d9','#4a90d9','#4a90d9','#27ae6e','#a0d9b8','#c8e6d0'],
+      borderRadius: 5
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { display: false }, tooltip: { callbacks: { label: ctx => ' $' + ctx.parsed.y + 'B' } } },
+    scales: {
+      x: { ticks: { font: { size: 11 }, color: '#888' }, grid: { display: false } },
+      y: { ticks: { callback: v => '$' + v + 'B', font: { size: 11 }, color: '#888' }, grid: { color: 'rgba(130,130,130,.1)' }, min: 100, max: 280 }
+    }
+  }
+});
+
+new Chart(document.getElementById('regionChart'), {
+  type: 'doughnut',
+  data: {
+    labels: ['América do Norte', 'Europa Ocidental', 'Ásia-Pacífico', 'Resto do mundo'],
+    datasets: [{
+      data: [46, 25, 18, 11],
+      backgroundColor: ['#3266ad', '#4a90d9', '#7ab3e0', '#b3d4f0'],
+      borderWidth: 0,
+      hoverOffset: 6
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    cutout: '62%',
+    plugins: {
+      legend: { display: false },
+      tooltip: { callbacks: { label: ctx => ' ' + ctx.label + ': ' + ctx.parsed + '%' } }
+    }
+  }
+});
+</script>

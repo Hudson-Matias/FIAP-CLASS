@@ -1,0 +1,6 @@
+O protocolo de transferência de arquivos ou File Transfer Protocol (FTP) foi projetado para permitir transferências de arquivos entre clientes e servidores. Um cliente FTP é um aplicativo em execução em um computador que envia e recebe arquivos de um servidor FTP.
+Como mostra a figura a seguir, para transferir dados com êxito, o Protocolo de Transferência de Arquivos requer duas conexões de servidor cliente, uma para o comando e resposta, e outra para a transferência real de arquivos:
+![[Pasted image 20260416134626.png]]
+  
+O cliente usa a porta TCP 21 para estabelecer a primeira conexão com o servidor para controlar o tráfego. Essa porta consiste em comandos do cliente e respostas do servidor. O cliente usa a porta TCP 20 para estabelecer uma segunda comunicação com o próprio servidor, para transmissão de dados.
+Essa comunicação é criada sempre que houver dados a serem transferidos. A transferência de dados pode ocorrer em ambas as direções. O cliente pode baixar dados do servidor ou fazer upload dos dados para o servidor.

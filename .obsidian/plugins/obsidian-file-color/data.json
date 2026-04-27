@@ -1,0 +1,63 @@
+{
+  "cascadeColors": false,
+  "colorBackground": false,
+  "palette": [
+    {
+      "id": "qTwucwnXMSEIxvRyHgt6v",
+      "name": "",
+      "value": "#0040ff"
+    },
+    {
+      "id": "SHs1LtHZ6dIwJN26kEHbN",
+      "name": "",
+      "value": "#ff0000"
+    },
+    {
+      "id": "rRuy4Fhj0lXebOaZk6MH8",
+      "name": "",
+      "value": "#ffffff"
+    },
+    {
+      "id": "PLVRd_hQIUfLlchBLLOsE",
+      "name": "",
+      "value": "#ff33da"
+    },
+    {
+      "id": "naLY05Kmlavq1YcTQwjBf",
+      "name": "",
+      "value": "#00ffee"
+    },
+    {
+      "id": "H0tRJCHf5i2XPXHQGUExn",
+      "name": "",
+      "value": "#04ff00"
+    },
+    {
+      "id": "ONGvrY5eIJmRYwngSGiBy",
+      "name": "",
+      "value": "#e1ff00"
+    }
+  ],
+  "fileColors": [
+    {
+      "path": "Fase 1/Aula 2/Riscos, vulnerabilidades e ameaças à segurança da informação e continuidade do negócio.md",
+      "color": "SHs1LtHZ6dIwJN26kEHbN"
+    },
+    {
+      "path": "Fase 1/Aula 1/Contexto Histórico.md",
+      "color": "SHs1LtHZ6dIwJN26kEHbN"
+    },
+    {
+      "path": "Fase 1/Aula 4/Cyber Command.md",
+      "color": "SHs1LtHZ6dIwJN26kEHbN"
+    },
+    {
+      "path": "Fase 1/Aula 5/Serviços em Linux.md",
+      "color": "SHs1LtHZ6dIwJN26kEHbN"
+    },
+    {
+      "path": "Fase 1/Aula 3/Virtualização.md",
+      "color": "SHs1LtHZ6dIwJN26kEHbN"
+    }
+  ]
+}
